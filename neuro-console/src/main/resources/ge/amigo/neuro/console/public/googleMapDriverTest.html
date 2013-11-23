@@ -1,0 +1,63 @@
+﻿<html>
+<head>
+	<script type="text/javascript" language="javascript" src="js/googleMapHelper.js"></script>
+	<script type="text/javascript" language="javascript">
+		function drawMap() {
+			googleMap_registerMap("mapContainer", 1);
+			googleMap_draw("mapContainer", 1, 41, 44, 11, "");
+		}	
+
+		function draw0() {
+			googleMap_setEditMode("mapContainer", "marker");
+			//googleMap_registerMap("mapContainer2", 2);
+			//googleMap_draw("mapContainer2	", 2, 41, 44, 11, "");
+		}	
+
+		function draw1() {
+			googleMap_instances[1][googleMap_markerClickHandlerPosition] = function () {
+				alert("ok");
+			}
+		
+			googleMap_addMarker("mapContainer", "a", "ავტობუსის გაჩერება", 41, 44, "", true, 10, 10);
+			googleMap_registerMarkerClickHandler("mapContainer", "a");
+			googleMap_addPolyline("mapContainer", "p1", "[[41,44],[41.07,43.97]]", 0.7, 3, "#FF0000");
+			googleMap_addPolygon("mapContainer", "pg1", "[[41,44],[40.97,43.95], [40.97,44.05],[41,44]]", 0.7, 3, "#FF0000");
+			googleMap_startEditPolyline("mapContainer", "p1");
+			//googleMap_stopEditPolyline("mapContainer", "p1");
+		}	
+		
+		function draw2() {
+			googleMap_updateMarker("mapContainer", "a", "ავტობუსის გაჩერება 3", 40.97, 44, "");
+			googleMap_updatePolyline("mapContainer", "p1", "[[41,44],[40.97,43.9]]", 0.7, 3, "#0000FF");
+			googleMap_updatePolygon("mapContainer", "pg1", "[[41,44],[40.98,43.92], [40.97,44.05],[41,44]]", 0.7, 3, "#00FF00");
+		}	
+		
+		function draw3() {
+			googleMap_removePolygon("mapContainer", "pg1");
+			googleMap_removePolyline("mapContainer", "p1");
+			googleMap_removeMarker("mapContainer", "a");
+//			googleMap_registerMap_dumpCache();
+		}	
+		
+		
+		
+	</script>	
+</head>
+
+
+
+
+
+<body onload="javascript:drawMap()">
+<div style="height:100px"> 
+	<input type="button" value="0" onclick="javascript:draw0()"/>
+	<input type="button" value="1" onclick="javascript:draw1()"/>
+	<input type="button" value="2" onclick="javascript:draw2()"/>
+	<input type="button" value="3" onclick="javascript:draw3()"/>
+</div>
+
+<div id="mapContainer" style="height:500px"></div>
+<div id="mapContainer2" style="height:500px"></div>
+
+</body>
+</html>

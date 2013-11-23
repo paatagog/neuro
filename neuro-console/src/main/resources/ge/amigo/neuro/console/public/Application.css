@@ -1,0 +1,14 @@
+* {
+    font-size: 12px;
+}
+
+body {
+	padding: 0px;
+	margin: 0px;
+	font-family: tahoma,arial,helvetica,sans-serif;
+}
+
+*.copyright {
+	color: #FFFFFF;
+	font-weight:bold;
+}

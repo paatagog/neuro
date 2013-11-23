@@ -1,0 +1,16 @@
+.idea
+.idea/*
+*.iml
+*/*.iml
+*/target
+target/
+*/.externalToolBuilders
+.externalToolBuilders/
+.settings
+.classpath
+.project
+*.orig
+*/*/Release
+*/*/Debug
+.log
+*.class
